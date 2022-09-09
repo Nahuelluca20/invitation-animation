@@ -1,4 +1,4 @@
-import {Stack, Heading, Text, Divider, Image, Flex, Box, Hide} from "@chakra-ui/react";
+import {Stack, Heading, Text, Divider, Image, Flex, Box, Link} from "@chakra-ui/react";
 import {useSpring, animated} from "react-spring";
 
 import InputText from "./InputText";
@@ -22,7 +22,7 @@ function Card() {
         transform: props.xys.interpolate(trans),
         maxWidth: "700px",
       }}
-      onMouseLeave={() => set({xys: [0, 0, 0]})}
+      onMouseLeave={() => set({xys: [0, 0, 1]})}
       onMouseMove={({clientX: x, clientY: y}) => set({xys: calc(x, y)})}
     >
       <Flex
@@ -31,10 +31,10 @@ function Card() {
         display={{base: "block", md: "flex"}}
         justifyContent="space-between"
         maxWidth="700px"
-        minWidth="100px"
+        minWidth={{base: "100px", lg: "700px"}}
         overflowY="hidden"
       >
-        <Box width="100%">
+        <Box width="100%" zIndex={1}>
           <Stack p={4}>
             <Flex
               alignItems="center"
@@ -69,7 +69,7 @@ function Card() {
           </Stack>
           <Stack backgroundColor="#D6B583">
             <Text fontWeight="700" px={5} py={2} textTransform="uppercase">
-              Wedding pass
+              birthday pass
             </Text>
           </Stack>
         </Box>
@@ -97,16 +97,21 @@ function Card() {
               >
                 Come fly with me
               </Text>
-              <Stack alignItems="center">
-                <Text fontWeight="600">29/10/2022</Text>
-                <Image
-                  src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DG1IbRujko-A%26t%3D5s%26ab_channel%3D10Hours&chs=180x180&choe=UTF-8&chld=L|2%27%20rel=%27nofollow%27%20alt=%27qr%20code%27%3E%3Ca%20href=%27https://www.qr-code-generator.com%27%20border=%270%27%20style=%27cursor:default%27%20%20rel=%27nofollow"
-                  width="150px"
-                />
-                <Text color="#D6B486" fontWeight="600" textTransform="uppercase">
-                  qr scan
-                </Text>
-              </Stack>
+              <Link
+                href="https://www.youtube.com/watch?v=G1IbRujko-A&t=13s&ab_channel=10Hours"
+                style={{textDecoration: "none"}}
+              >
+                <Stack alignItems="center" cursor="pointer">
+                  <Text fontWeight="600">29/10/2022</Text>
+                  <Image
+                    src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DG1IbRujko-A%26t%3D5s%26ab_channel%3D10Hours&chs=180x180&choe=UTF-8&chld=L|2%27%20rel=%27nofollow%27%20alt=%27qr%20code%27%3E%3Ca%20href=%27https://www.qr-code-generator.com%27%20border=%270%27%20style=%27cursor:default%27%20%20rel=%27nofollow"
+                    width="150px"
+                  />
+                  <Text color="#D6B486" fontWeight="600" textTransform="uppercase">
+                    qr scan/click
+                  </Text>
+                </Stack>
+              </Link>
             </Stack>
             <Stack backgroundColor="#D6B583">
               <Text cursor="pointer" fontWeight="700" px={5} py={2} textTransform="uppercase">

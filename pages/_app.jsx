@@ -1,11 +1,15 @@
 import {ChakraProvider} from "@chakra-ui/react";
+
 import "../styles/globals.css";
+import {AppContext} from "../context/MusicContext";
 
 function MyApp({Component, pageProps}) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <AppContext>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </AppContext>
   );
 }
 

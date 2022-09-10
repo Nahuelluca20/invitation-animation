@@ -1,6 +1,8 @@
 import {Stack, Heading, Text, Divider, Image, Flex, Box, Link} from "@chakra-ui/react";
 import {useSpring, animated} from "react-spring";
 
+import {useMusicContext} from "../context/MusicContext";
+
 import InputText from "./InputText";
 import Header from "./Header";
 
@@ -15,6 +17,9 @@ function Card() {
     xys: [0, 0, 0],
     config: {mass: 5, tension: 200, friction: 50},
   }));
+
+  const {setInvitationState, personName, chagePersonName, changeNumberPersons, numberPersons} =
+    useMusicContext();
 
   return (
     <animated.div
@@ -61,8 +66,16 @@ function Card() {
               />
             </Flex>
             <Stack pt={5}>
-              <InputText label="Nombre y Apellido:" placeholder="Ponga su Nombre" />
-              <InputText label="Números de personas:" placeholder="Ponga el n° de personas" />
+              <InputText
+                functionChange={chagePersonName}
+                label="Nombre y Apellido:"
+                placeholder="Ponga su Nombre"
+              />
+              <InputText
+                functionChange={changeNumberPersons}
+                label="Números de personas:"
+                placeholder="Ponga el n° de personas"
+              />
               <Header text="29/10/2022" title="Fecha" />
               <Header text="Aires del Sausal, 21hs" title="Lugar y Hora" />
             </Stack>
@@ -114,9 +127,19 @@ function Card() {
               </Link>
             </Stack>
             <Stack backgroundColor="#D6B583">
-              <Text cursor="pointer" fontWeight="700" px={5} py={2} textTransform="uppercase">
+              <Link
+                cursor="pointer"
+                fontWeight="700"
+                href={`https://wa.me/542616520819?text=${
+                  "Hola! mi nombre es: " + personName + " y vamos: " + numberPersons
+                }`}
+                px={5}
+                py={2}
+                textTransform="uppercase"
+                onClick={() => setInvitationState()}
+              >
                 Confirmar
-              </Text>
+              </Link>
             </Stack>
           </Stack>
         </Flex>

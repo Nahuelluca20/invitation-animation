@@ -2,13 +2,14 @@ import {Heading, Stack, Flex} from "@chakra-ui/react";
 import Head from "next/head";
 import {useState, useEffect} from "react";
 
+import Success from "../components/Success";
 import PlayerMusic from "../components/PlayerMusic";
 import {useMusicContext} from "../context/MusicContext";
 import Card from "../components/Card";
 import MegadethLogo from "../assets/megadethLogo.png";
 
 export default function Invitation() {
-  const {musicSelected} = useMusicContext();
+  const {musicSelected, invitation} = useMusicContext();
   const [musicInfo, setMusicInfo] = useState({
     imgLogo: "",
     songTitle: "",
@@ -33,7 +34,7 @@ export default function Invitation() {
       url: "https://www.youtube.com/watch?v=gdZLi9oWNZg&ab_channel=HYBELABELS",
     },
     {
-      name: "luismi <3",
+      name: "luismi ❤️",
       imgLogo: MegadethLogo,
       songTitle: "Ahora te puedes marchar",
       bandName: "Luis Miguel",
@@ -119,8 +120,8 @@ export default function Invitation() {
           url: result.url,
         });
       }
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   }
 
@@ -134,39 +135,45 @@ export default function Invitation() {
         <title>Aylén XV</title>
         <meta content="initial-scale=1.0, width=device-width" name="viewport" />
       </Head>
-      <Stack
-        backgroundColor="#1B1B1B"
-        height={{lg: "100vh"}}
-        justify="center"
-        overflow="hidden"
-        p="20px"
-      >
-        <Heading
-          color="#E1C091"
-          fontSize="45px"
-          fontWeight="700"
-          pb={10}
-          textAlign="center"
-          textTransform="uppercase"
+      <div className="star-field">
+        <div className="layer" />
+        <div className="layer" />
+        <div className="layer" />
+        <Stack
+          backgroundColor="#1B1B1B"
+          height={{lg: "100vh"}}
+          justify="center"
+          overflow="hidden"
+          p="20px"
         >
-          {musicSelected}
-        </Heading>
-        <Flex
-          alignItems="center"
-          direction={{lg: "row-reverse"}}
-          display={{base: "block", lg: "flex"}}
-          justifyContent="space-around"
-        >
-          <Stack color="white" mb={{base: "10", lg: "0"}} textAlign="center">
-            <PlayerMusic
-              bandName={musicInfo.bandName}
-              songTitle={musicInfo.songTitle}
-              url={musicInfo.url}
-            />
-          </Stack>
-          <Card />
-        </Flex>
-      </Stack>
+          <Heading
+            color="#E1C091"
+            fontFamily="Dancing Script"
+            fontSize="45px"
+            fontWeight="700"
+            pb={10}
+            textAlign="center"
+            textTransform="uppercase"
+          >
+            {musicSelected}
+          </Heading>
+          <Flex
+            alignItems="center"
+            direction={{lg: "row-reverse"}}
+            display={{base: "block", lg: "flex"}}
+            justifyContent="space-around"
+          >
+            <Stack color="white" mb={{base: "10", lg: "0"}} textAlign="center">
+              <PlayerMusic
+                bandName={musicInfo.bandName}
+                songTitle={musicInfo.songTitle}
+                url={musicInfo.url}
+              />
+            </Stack>
+            {invitation ? <Success /> : <Card />}
+          </Flex>
+        </Stack>
+      </div>
     </>
   );
 }

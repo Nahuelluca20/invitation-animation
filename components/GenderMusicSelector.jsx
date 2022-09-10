@@ -14,7 +14,7 @@ function GenderMusicSelector() {
     },
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGHTyqWjDfJCKsUTuPIabZzvZJZS8AITrVxA&usqp=CAU",
-      title: "luismi <3",
+      title: "luismi ❤️",
     },
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvQRpolcNTD76tDkpzOVQ9stwwXMkWzCiCiQ&usqp=CAU",
@@ -58,25 +58,27 @@ function GenderMusicSelector() {
 
   return (
     <>
-      <Heading color="#E1C091" fontSize="45px" fontWeight="700" pb={20} textAlign="center">
+      <Heading fontFamily="Playfair Display" color="#E1C091" fontSize="45px" fontWeight="700" pb={20} textAlign="center">
         Elige tu género favorito
       </Heading>
       <Grid
-        gridTemplateColumns={{base: "repeat(1, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)"}}
+        gridTemplateColumns={{base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)"}}
         justifyContent="center"
-        px={20}
+        px={10}
         rowGap={{base: "20px", lg: "40px"}}
+        columnGap={{base: "10", lg: "0"}}
       >
         {items.map((item) => (
           <Link
             key={item.title}
             cursor="pointer"
             href="/invitacion"
+            textAlign="center"
             onClick={() => selectMusic(item.title)}
           >
             <Stack align="center">
               <Image borderRadius="full" boxSize="100px" src={item.img} />
-              <Text color="#E1C091" fontWeight="700" textTransform="uppercase">
+              <Text color="#E1C091" fontWeight="700" textTransform="uppercase" fontFamily="Playfair Display">
                 {item.title}
               </Text>
             </Stack>

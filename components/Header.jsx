@@ -1,6 +1,6 @@
 import {Text, Heading, Stack} from "@chakra-ui/react";
 
-function InputText({title, text}) {
+function Header({title, text}) {
   return (
     <Stack>
       <Heading color="#C9AA79" fontSize="15px" fontWeight="600" mb={0} ml={2}>
@@ -13,4 +13,4 @@ function InputText({title, text}) {
   );
 }
 
-export default InputText;
+export default Header;

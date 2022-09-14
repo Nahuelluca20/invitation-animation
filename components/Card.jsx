@@ -111,13 +111,13 @@ function Card() {
                 Come fly with me
               </Text>
               <Link
-                href="https://www.youtube.com/watch?v=G1IbRujko-A&t=13s&ab_channel=10Hours"
+                href="https://www.google.com/maps/place/Aires+del+Sauzal/@-32.865999,-68.7494954,15z/data=!4m5!3m4!1s0x0:0xdb24486077b1fb85!8m2!3d-32.865999!4d-68.7494954"
                 style={{textDecoration: "none"}}
               >
                 <Stack alignItems="center" cursor="pointer">
                   <Text fontWeight="600">29/10/2022</Text>
                   <Image
-                    src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DG1IbRujko-A%26t%3D5s%26ab_channel%3D10Hours&chs=180x180&choe=UTF-8&chld=L|2%27%20rel=%27nofollow%27%20alt=%27qr%20code%27%3E%3Ca%20href=%27https://www.qr-code-generator.com%27%20border=%270%27%20style=%27cursor:default%27%20%20rel=%27nofollow"
+                    src="https://www.codigos-qr.com/qr/php/qr_img.php?d=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FAires%2Bdel%2BSauzal%2F%40-32.865999%2C-68.7494954%2C15z%2Fdata%3D%214m5%213m4%211s0x0%3A0xdb24486077b1fb85%218m2%213d-32.865999%214d-68.7494954&s=6&e=m"
                     width="150px"
                   />
                   <Text color="#D6B486" fontWeight="600" textTransform="uppercase">

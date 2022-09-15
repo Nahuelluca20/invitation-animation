@@ -10,6 +10,7 @@ export function AppContext({children}) {
   const [invitation, setInvitation] = useState(false);
   const [personName, setPersonName] = useState();
   const [numberPersons, setNumberPersons] = useState();
+  const [selectedGroup, setSelectedGroup] = useState();
 
   useEffect(() => {
     setMusicSelected(music);
@@ -44,6 +45,8 @@ export function AppContext({children}) {
         changeNumberPersons,
         personName,
         numberPersons,
+        selectedGroup,
+        setSelectedGroup,
       }}
     >
       {children}

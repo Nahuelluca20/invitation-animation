@@ -1,8 +1,20 @@
-import {Stack, Heading, Text, Divider, Image, Flex, Box, Link} from "@chakra-ui/react";
+import {
+  Stack,
+  Heading,
+  Text,
+  Divider,
+  Image,
+  Flex,
+  Box,
+  Link,
+  RadioGroup,
+  Radio,
+} from "@chakra-ui/react";
 import {useSpring, animated} from "react-spring";
 
 import {useMusicContext} from "../context/MusicContext";
 
+import ConfirmButton from "./ConfirmButton";
 import InputText from "./InputText";
 import Header from "./Header";
 
@@ -18,8 +30,7 @@ function Card() {
     config: {mass: 5, tension: 200, friction: 50},
   }));
 
-  const {setInvitationState, personName, chagePersonName, changeNumberPersons, numberPersons} =
-    useMusicContext();
+  const {chagePersonName, changeNumberPersons, selectedGroup, setSelectedGroup} = useMusicContext();
 
   return (
     <animated.div
@@ -80,6 +91,19 @@ function Card() {
               <Header text="Aires del Sausal, 21hs" title="Lugar y Hora" />
             </Stack>
           </Stack>
+          <Stack pb={5} pl={5}>
+            <RadioGroup value={selectedGroup} onChange={setSelectedGroup}>
+              <Stack>
+                <Radio colorScheme="green" size="lg" value="542615324236">
+                  Confirmar a Aylén
+                </Radio>
+                <Radio colorScheme="green" size="lg" value="542616520819">
+                  Confirmar a Lorena
+                </Radio>
+              </Stack>
+            </RadioGroup>
+          </Stack>
+
           <Stack backgroundColor="#D6B583">
             <Text fontWeight="700" px={5} py={2} textTransform="uppercase">
               birthday pass
@@ -127,19 +151,7 @@ function Card() {
               </Link>
             </Stack>
             <Stack backgroundColor="#D6B583">
-              <Link
-                cursor="pointer"
-                fontWeight="700"
-                href={`https://wa.me/542616520819?text=${
-                  "Hola! mi nombre es: " + personName + " y vamos: " + numberPersons
-                }`}
-                px={5}
-                py={2}
-                textTransform="uppercase"
-                onClick={() => setInvitationState()}
-              >
-                Confirmar
-              </Link>
+              <ConfirmButton />
             </Stack>
           </Stack>
         </Flex>
